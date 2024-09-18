@@ -5,6 +5,15 @@ async function userSignUpController(req, res) {
   try {
     const { name, email, password } = req.body;
 
+    const user = await userModel.findOne({ email });
+    if (user) {
+      return res.status(400).json({
+        error: true,
+        success: false,
+        message: "User Already Exist",
+      });
+    }
+
     if (!email) {
       return res.status(400).json({
         error: true,
@@ -36,6 +45,7 @@ async function userSignUpController(req, res) {
 
     const payload = {
       ...req.body,
+      role:"GENERAL",
       password: hashPassword,
     };
 
@@ -49,9 +59,10 @@ async function userSignUpController(req, res) {
       error: false,
       message: "User Created Successfully!",
     });
+
   } catch (error) {
     res.status(500).json({
-      message: error,
+      message: error.message || error,
       error: true,
       success: false,
     });

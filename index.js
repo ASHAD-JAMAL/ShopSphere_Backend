@@ -4,6 +4,7 @@ require("dotenv").config();
 const { connectDB } = require("./config/db");
 const router = require("./routes/index");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 const { MONGODB_URI, PORT } = process.env;
 const app = express();
@@ -11,7 +12,13 @@ const app = express();
 // middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true,
+}));
+
+app.use(cookieParser());
 
 // connect to db
 connectDB(MONGODB_URI);
