@@ -33,6 +33,7 @@ async function userSignInController(req, res) {
     const checkPassword = await bcrypt.compare(password, user.password);
     console.log("checkPassword", checkPassword);
     
+
     if (checkPassword) {
       const tokenData = {
         _id: user._id,
@@ -46,7 +47,7 @@ async function userSignInController(req, res) {
         secure: true,
       };
       res.cookie("token", token, tokenOption).status(httpStatusCode.Ok).json({
-        message: "User Logged In Successfully",
+        message: "Login Successfully",
         data: token,
         success: true,
         error: false,

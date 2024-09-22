@@ -15,14 +15,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    profilePic: {
+    profilepic: {
       type: String,
     },
+    role: { type: String, default: "GENERAL" },
   },
   {
     timestamps: true,
   }
 );
 
-const userModel = mongoose.model("user",userSchema);
+const userModel = mongoose.model("user", userSchema);
 module.exports = userModel;
