@@ -1,5 +1,5 @@
-const userModel = require("../models/userModel");
-const httpStatusCode = require("../constants/httpStatusCode");
+const userModel = require("../../models/userModel");
+const httpStatusCode = require("../../constants/httpStatusCode");
 
 async function updateUser(req,res){
     try {

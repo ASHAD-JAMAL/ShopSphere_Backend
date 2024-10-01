@@ -1,5 +1,5 @@
-const httpStatusCode = require("../constants/httpStatusCode");
-const productModel = require("../models/productModel");
+const httpStatusCode = require("../../constants/httpStatusCode");
+const productModel = require("../../models/productModel");
 
 const getProductController = async (req, res) => {
   try {

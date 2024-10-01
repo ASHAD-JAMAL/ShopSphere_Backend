@@ -1,5 +1,5 @@
-const httpStatusCode = require("../constants/httpStatusCode");
-const userModel = require("../models/userModel");
+const httpStatusCode = require("../../constants/httpStatusCode");
+const userModel = require("../../models/userModel");
 const bcrypt = require("bcryptjs");
 
 async function userSignUpController(req, res) {

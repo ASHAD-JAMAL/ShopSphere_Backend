@@ -1,5 +1,5 @@
-const httpStatusCode = require("../constants/httpStatusCode");
-const userModel = require("../models/userModel");
+const httpStatusCode = require("../../constants/httpStatusCode");
+const userModel = require("../../models/userModel");
 
 async function allUsers(req, res) {
   try {

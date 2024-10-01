@@ -1,6 +1,6 @@
-const httpStatusCode = require("../constants/httpStatusCode");
-const uploadProductPermission = require("../helpers/permission");
-const productModel = require("../models/productModel");
+const httpStatusCode = require("../../constants/httpStatusCode");
+const uploadProductPermission = require("../../helpers/permission");
+const productModel = require("../../models/productModel");
 
 async function uploadProductController(req, res) {
   try {

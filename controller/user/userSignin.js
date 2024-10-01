@@ -1,5 +1,5 @@
-const httpStatusCode = require("../constants/httpStatusCode");
-const userModel = require("../models/userModel");
+const httpStatusCode = require("../../constants/httpStatusCode");
+const userModel = require("../../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
