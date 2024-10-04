@@ -6,7 +6,7 @@ async function updateProductController(req, res) {
   try {
     if (!uploadProductPermission(req.userId)) {
       return res.status(httpStatusCode.UNAUTHORIZED).json({
-        message: "You are not authorized to upload product",
+        message: "You are not authorized to update product",
         error: true,
         success: false,
       });
