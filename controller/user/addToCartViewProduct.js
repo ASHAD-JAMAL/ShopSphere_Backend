@@ -1,17 +1,19 @@
 const httpStatusCode = require("../../constants/httpStatusCode");
 const addToCartModel = require("../../models/cartProduct");
 
-const addToCartViewProduct = async(req, res) => {
+const addToCartViewProduct = async (req, res) => {
   try {
     const currentUser = req.userId;
-    const allProducts = await addToCartModel.find({
-          userId : userId
-    })
+    const allProducts = await addToCartModel
+      .find({
+        userId: currentUser,
+      })
+      .populate("productId");
     res.status(httpStatusCode.Ok).json({
-      data : allProducts,
+      data: allProducts,
       success: true,
-      error: false
-    })
+      error: false,
+    });
   } catch (error) {
     res.status(httpStatusCode.BAD_REQUEST).json({
       message: error.message || error,
