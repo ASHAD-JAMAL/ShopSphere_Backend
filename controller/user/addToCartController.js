@@ -6,7 +6,10 @@ const addToCartController = async (req, res) => {
     const { productId } = req?.body;
     const currentUser = req.userId;
 
-    const isProductAvailable = await addToCartModel.findOne({ productId });
+    const isProductAvailable = await addToCartModel.findOne({
+      productId,
+      userId: currentUser,
+    });
 
     if (isProductAvailable) {
       return res.status(httpStatusCode.CONFLICT).json({
@@ -35,7 +38,7 @@ const addToCartController = async (req, res) => {
       message: error.message || error,
       error: true,
       success: false,
-    }); 
+    });
   }
 };
 module.exports = addToCartController;

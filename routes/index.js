@@ -21,6 +21,8 @@ const updateAddToCartProducts = require("../controller/user/updateAddToCartProdu
 const deleteAddToCartProduct = require("../controller/user/deleteAddToCartProduct");
 const SearchProduct = require("../controller/product/searchProduct");
 const filterProductController = require("../controller/product/filterProduct");
+const paymentController = require("../controller/Order/paymentController");
+const webhooks = require("../controller/Order/webhook");
 
 router.post("/signup", userSignUpController);
 router.post("/signin", userSignInController);
@@ -47,5 +49,9 @@ router.get("/count-add-to-cart-product", authToken, countAddToCartProduct);
 router.get("/view-cart-product", authToken, addToCartViewProduct);
 router.post("/update-cart-product", authToken, updateAddToCartProducts);
 router.post("/delete-cart-product", authToken, deleteAddToCartProduct);
+
+//payments and order
+router.post("/checkout", authToken, paymentController);
+router.post("/webhook", webhooks);
 
 module.exports = router;
