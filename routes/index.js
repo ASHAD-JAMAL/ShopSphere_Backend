@@ -33,7 +33,7 @@ router.get("/userLogout", userLogout);
 router.get("/all-user", authToken, allUsers);
 router.post("/update-user", authToken, updateUser);
 
-//product routes
+//product route
 router.post("/upload-product", authToken, uploadProductController);
 router.get("/get-product", getProductController);
 router.post("/update-product", authToken, updateProductController);
