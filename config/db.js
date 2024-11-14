@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 
 const connectDB = (MONGODB_URI) => {
-  mongoose.connect(MONGODB_URI); // Removed deprecated options
+  mongoose.connect(MONGODB_URI, {
+    serverSelectionTimeoutMS: 50000, // Wait for 50 seconds instead of 30
+  });
   const connection = mongoose.connection;
 
   connection.on("error", (error) => {
