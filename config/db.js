@@ -1,19 +1,21 @@
-const mongoose = require("mongoose");
+const mongoose=require('mongoose');
 
-const connectDB = (MONGODB_URI) => {
-  mongoose.connect(MONGODB_URI, {
-    serverSelectionTimeoutMS: 50000, // Wait for 50 seconds instead of 30
-  });
-  const connection = mongoose.connection;
+const connectDB=(url)=>{
+    mongoose.connect(url,{
+        useNewUrlParser:true,
+        useUnifiedTopology:true,
+    });
 
-  connection.on("error", (error) => {
-    console.log(error);
-  });
-  connection.once("open", () => {
-    console.log("Database Connected Successfully");
-  });
-};
+    const db=mongoose.connection;
 
-module.exports = {
-  connectDB,
-};
+    db.on("error",(error)=>{
+        console.error("MongoDb connection error:",error);
+    });
+    db.once("open",()=>{
+        console.log("MongoDB connected successfully");
+    });
+}
+
+module.exports={
+    connectDB,
+}
