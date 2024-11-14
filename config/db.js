@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
 const connectDB = (MONGODB_URI) => {
-  mongoose.connect(MONGODB_URI, {
-    useNewURlParser: true,
-    useUnifiedTopology: true,
-  });
+  mongoose.connect(MONGODB_URI); // Removed deprecated options
   const connection = mongoose.connection;
 
   connection.on("error", (error) => {
